@@ -6,12 +6,12 @@ Given('that I am on the start page', () => {
   cy.visit('/');
 });
 
-Given('that I have searched for {string}', (searchTerm) => {
+When('I have searched for {string}', (searchTerm) => {
   productName = searchTerm
   cy.get('#search').type(productName);
 });
 
-When('I click the buy button {string} time', (clickCount) => {
+When('I click the buy button {string} time(s)', (clickCount) => {
   for (let i = 1; i <= +clickCount; i++){
   cy.get('div.product h2')
     .contains(productName)
