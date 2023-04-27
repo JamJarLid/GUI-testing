@@ -43,7 +43,7 @@ Then('The price will be correct', () => {
   cy.get('#cart li')
     .contains("Total")
     .find('span').each(span => {
-      total.push(+span.text().replace(/\D/g, ''));
+      total.push(+span.text());
     });
   expect(collected[2]).to.equal(total[0]);
 });
