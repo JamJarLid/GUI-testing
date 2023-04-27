@@ -19,3 +19,22 @@ Feature: Add to cart and check the totals
       | Spotlight  | 3        |
       | Lampett    | 2        |
 
+  Scenario: Calculating the price of "3" "Bordslampor"
+    When I have searched for "Bordslampa"
+    And I click the buy button "3" times
+    Then The price will be correct
+
+  Scenario: Calculating the price of "2" "Golvlampor"
+    When I have searched for "Golvlampa"
+    And I click the buy button "2" times
+    Then The price will be correct
+
+  Scenario: Calculating the price of "10" "Lampetter"
+    When I have searched for "Lampett"
+    And I click the buy button "10" times
+    Then The price will be correct
+
+  Scenario: Calculating the price of "5" "Spotlights"
+    When I have searched for "Spotlight"
+    And I click the buy button "5" times
+    Then The price will be correct
