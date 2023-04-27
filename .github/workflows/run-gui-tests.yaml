@@ -1,4 +1,4 @@
-name: Node.js CI
+name: test and deploy
 
 # Trigger which git action (push, pull_request)
 # in which branch(es) should start the jobs...
@@ -31,11 +31,11 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install
+        cache: 'npm'
       # npm ci ≈ read-only from package.json version
       # of npm install -> installs all npm modules
       # mentioned in package.json, preferably during CI
-      run: npm ci
+    - run: npm ci
       # if the project has a npm run build command
       # then runs (not needed right now but keep)
     - run: npm run build --if-present
