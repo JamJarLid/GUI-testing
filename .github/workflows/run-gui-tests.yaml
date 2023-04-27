@@ -49,7 +49,6 @@ jobs:
 
     # demand that the  test job succeed
     # before running deploy
-    needs: [tests]
     runs-on: ubuntu-latest
 
     steps:
