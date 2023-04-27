@@ -36,7 +36,6 @@ jobs:
       # of npm install -> installs all npm modules
       # mentioned in package.json, preferably during CI
       run: npm ci
-    - name: fire up backend
       # if the project has a npm run build command
       # then runs (not needed right now but keep)
     - run: npm run build --if-present
@@ -47,7 +46,7 @@ jobs:
     - run: npm test
 
   deploy:
-  
+
     # demand that the  test job succeed
     # before running deploy
     needs: [tests]
