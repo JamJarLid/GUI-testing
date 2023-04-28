@@ -4,7 +4,7 @@ name: test and deploy
 # in which branch(es) should start the jobs...
 on:
   push:
-    branches: [main, dev]
+    branches: [main,dev]
   pull_request:
     branches: [main, dev]
 
@@ -49,14 +49,18 @@ jobs:
 
     # demand that the  test job succeed
     # before running deploy
+    needs: [tests]
+
+    # demand that the  test job succeed
+    # before running deploy
     runs-on: ubuntu-latest
 
     steps:
-      # - name: wait for the merge to get to the server 
-      # using ssh-action from appleboy
-        # uses: jakejarvis/wait-action@master
-        # with:
-        #   time: '60s'
+      - name: wait for the merge to get to the server 
+          # using ssh-action from appleboy
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '60s'
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@v0.1.10
         with:
